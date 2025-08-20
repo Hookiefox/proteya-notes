@@ -1,0 +1,40 @@
+.tag-create-form-container {
+  padding: 1.5rem;
+}
+
+.parent-tag-info {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: var(--secondary-background-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-row input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button-secondary {
+  background-color: var(--secondary-background-color);
+}

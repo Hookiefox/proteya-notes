@@ -1,0 +1,31 @@
+.user-management-container {
+  padding: 1rem;
+}
+
+.create-user-form {
+  margin-bottom: 2rem;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-table th {
+  font-weight: bold;
+}
+
+.button-danger {
+  background-color: #dc3545;
+}
+
+.button-danger:hover {
+  background-color: #c82333;
+}

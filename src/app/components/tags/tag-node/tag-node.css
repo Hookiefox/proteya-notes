@@ -1,0 +1,43 @@
+:host { 
+  display: block; 
+}
+
+.interactive-item {
+  
+  display: flex;
+  align-items: center;
+  gap: 6px; 
+}
+
+.toggle-icon {
+  width: 16px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.toggle-icon .icon {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  align-items: center;
+  filter: var(--icon-filter);
+  transition: transform 0.2s ease-in-out;
+}
+
+.interactive-item:hover .toggle-icon .icon {
+  filter: var(--icon-filter-hover);
+}
+
+.spacer {
+  
+  display: inline-block;
+  width: 16px;
+}
+
+.children-container {
+  padding-left: 25px;
+  border-left: 1px solid var(--border-color);
+  margin-left: 8px;
+}

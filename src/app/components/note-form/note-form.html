@@ -1,0 +1,114 @@
+<div class="note-form-wrapper">
+  <form class="note-form-container" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <div class="form-header">
+      <div class="form-actions">
+        <span class="save-indicator" [class.visible]="saveIndicatorState === 'visible'">Сохранено!</span>
+        <button type="button" class="button" (click)="openTagSelector()">
+          <img src="assets/icons/pricetags.svg" alt="Назначить теги" class="icon"/>
+        </button>
+
+        <input type="file" #videoInput hidden (change)="onVideoFileSelected($event)" accept="video/*">
+        <button type="button" class="button" (click)="toggleReadMode()">
+          <img src="assets/icons/book-open.svg" alt="Читать" class="icon"/>
+        </button>
+        <button type="submit" class="button">
+          <img src="assets/icons/save.svg" alt="Сохранить" class="icon"/>
+        </button>
+        <button type="button" class="button" (click)="deleteNote()">
+          <img src="assets/icons/trash-2.svg" alt="Удалить" class="icon"/>
+        </button>
+      </div>
+    </div>
+
+  
+
+    
+
+    
+        <!-- Кастомный тулбар с основными кнопками и вашей кнопкой -->
+    <div id="toolbar">
+      <button class="ql-undo">
+        <img src="assets/icons/corner-up-left.svg" class="icon"/>
+      </button>
+      <button class="ql-redo">
+        <img src="assets/icons/corner-up-right.svg" class="icon"/>
+      </button>
+      
+      <button class="ql-bold">
+        <img src="assets/icons/corner-up-right.svg" class="icon"/>
+      </button>
+      
+      <button class="ql-italic"></button>
+      <button class="ql-underline"></button>
+      <button class="ql-strike"></button>
+
+      <select class="ql-header">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option selected></option>
+      </select>
+
+      <select class="ql-color"></select>
+      <select class="ql-background"></select>
+
+      <button class="ql-list" value="ordered"></button>
+      <button class="ql-list" value="bullet"></button>
+
+
+      <select class="ql-align"></select>
+
+      <button class="ql-link"></button>
+      <button class="ql-image"></button>
+      <button class="ql-video ql-custom-button" id="addLocalVideoButton" (click)="addLocalVideo()">
+        <img src="assets/icons/film.svg" class="icon"/>
+      </button>
+
+      
+      <button class="ql-code-block"></button>
+      <button class="ql-script" value="sub"></button>
+      <button class="ql-script" value="super"></button>
+
+      <button class="ql-clean"></button>
+      
+      
+      <!-- Ваша кастомная кнопка -->
+      
+    </div>
+    <div class="editor-panel">
+      <div class="editor-container" id="editor">
+        
+
+         <div class="assigned-tags" *ngIf="noteForm.value.tags?.length > 0">
+            <span *ngFor="let tagId of noteForm.value.tags" class="tag-badge">
+              {{ getTagName(tagId) | async }}
+              <button type="button" class="remove-tag-button" (click)="removeTag(tagId)">
+                <img src="assets/icons/close.svg" alt="Открепить тег" class="icon"/>
+              </button>
+            </span>
+          </div>
+
+          <div class="title-container">
+            <input formControlName="title" placeholder="Заголовок вашей заметки...">
+          </div>
+          
+                    <div id="editor-wrapper">
+            <quill-editor 
+              [spellcheck]="false"
+              formControlName="content" 
+              [modules]="modules"
+              placeholder="Введите текст вашей заметки здесь...">
+              (onEditorCreated)="onEditorReady($event)">
+            </quill-editor>
+            <div class="bottom-spacer" (click)="focusAtEnd()"></div>
+          </div>
+
+          
+        </div>
+        
+    </div>
+
+    <!-- Сам редактор -->
+   
+
+
+  </form>

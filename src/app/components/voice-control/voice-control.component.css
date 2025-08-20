@@ -1,0 +1,18 @@
+.voice-control-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  padding: 0 1rem;
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.channel-info span {
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}

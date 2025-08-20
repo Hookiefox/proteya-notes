@@ -1,0 +1,20 @@
+<div class="tag-manager-container">
+  <div class="actions">
+    <button class="button" (click)="showCreateForm()">
+      <img src="assets/icons/plus.svg" alt="Создать тег" class="icon"/>
+      <span>Создать тег</span>
+    </button>
+  </div>
+  <section class="tag-list">
+    <ng-container *ngIf="allTags$ | async as allTags">
+      <app-tag-list-item
+        *ngFor="let rootTag of rootTags$ | async"
+        [tag]="rootTag"
+        [allTags]="allTags"
+        (edit)="showEditForm($event)"
+        (addChild)="showCreateForm($event)"
+        (remove)="deleteTag($event)">
+      </app-tag-list-item>
+    </ng-container>
+  </section>
+</div>

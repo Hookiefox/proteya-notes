@@ -1,0 +1,12 @@
+<div class="tag-edit-form-container">
+  <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <label for="tag-name">Новое имя тега</label>
+      <input id="tag-name" formControlName="name" placeholder="Введите имя тега">
+    </div>
+    <div class="form-actions">
+      <button type="button" class="button" (click)="onCancel()">Отмена</button>
+      <button type="submit" class="button" [disabled]="!tagForm.valid">Сохранить</button>
+    </div>
+  </form>
+</div>

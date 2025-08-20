@@ -1,0 +1,23 @@
+.confirm-dialog-container {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.dialog-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.dialog-message {
+  margin-bottom: 2rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.button-secondary {
+  background-color: var(--secondary-background-color);
+}

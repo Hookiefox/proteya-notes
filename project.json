@@ -1,0 +1,115 @@
+{
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "proteya_notes",
+  "projectType": "application",
+  "generators": {},
+  "sourceRoot": "src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "options": {
+        "browser": "src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "public"
+          },
+          {
+            "glob": "logo.svg",
+            "input": "public",
+            "output": "."
+          },
+          {
+            "glob": "**/*",
+            "input": "src/app/icons",
+            "output": "assets/icons"
+          }
+        ],
+        "styles": [
+          "src/styles.css",
+          "node_modules/quill/dist/quill.snow.css"
+        ],
+        "scripts": [],
+        "baseHref": "./",
+        "deployUrl": "./",
+        "outputPath": "dist/proteya_notes"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve": {
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "proteya_notes:build:production"
+        },
+        "development": {
+          "buildTarget": "proteya_notes:build:development",
+          "proxyConfig": "proxy.conf.json"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n"
+    },
+    "test": {
+      "executor": "@angular/build:karma",
+      "options": {
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "tsConfig": "tsconfig.spec.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "public"
+          },
+          {
+            "glob": "logo.svg",
+            "input": "public",
+            "output": "."
+          },
+          {
+            "glob": "**/*",
+            "input": "src/app/icons",
+            "output": "assets/icons"
+          }
+        ],
+        "styles": [
+          "src/styles.css"
+        ]
+      }
+    }
+  }
+}

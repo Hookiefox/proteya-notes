@@ -1,0 +1,18 @@
+.confirmation-dialog {
+  padding: 20px;
+  text-align: center;
+}
+
+.dialog-buttons {
+  margin-top: 20px;
+}
+
+.confirm-button {
+  background-color: var(--danger-color);
+  color: white;
+  margin-right: 10px;
+}
+
+.cancel-button {
+  background-color: var(--secondary-color);
+}

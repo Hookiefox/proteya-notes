@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.tag-item:hover {
+  background-color: var(--hover-color);
+}
+
+.tag-name {
+  flex-grow: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: var(--icon-hover-background);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  filter: var(--icon-filter);
+}
+
+.icon-button:hover .icon {
+  filter: var(--icon-filter-hover);
+}
+
+.children-container {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--border-color);
+  margin-left: 1rem;
+}

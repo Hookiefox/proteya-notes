@@ -1,0 +1,16 @@
+.invite-user-container {
+  padding: 20px;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}

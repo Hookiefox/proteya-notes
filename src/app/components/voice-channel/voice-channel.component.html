@@ -1,0 +1,6 @@
+<div>
+  <h4>{{ note.title }}</h4>
+  <div *ngFor="let peer of remotePeers">
+    <audio [srcObject]="peer.stream" autoplay></audio>
+  </div>
+</div>

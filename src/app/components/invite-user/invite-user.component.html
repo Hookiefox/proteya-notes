@@ -1,0 +1,9 @@
+<div class="invite-user-container">
+  <h3>Invite User to {{ workspace.name }}</h3>
+  <ul class="user-list">
+    <li *ngFor="let user of users" class="user-item">
+      <span>{{ user.email }}</span>
+      <button (click)="inviteUser(user.id)">Invite</button>
+    </li>
+  </ul>
+</div>

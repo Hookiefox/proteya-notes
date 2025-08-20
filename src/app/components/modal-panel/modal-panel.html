@@ -1,0 +1,16 @@
+<div class="modal-panel-container">
+  <!-- Общий заголовок для всех модальных окон -->
+  <header class="modal-header">
+    <h2>{{ title }}</h2>
+    <button type="button" class="button" (click)="dialogRef.close()">
+      <img src="assets/icons/close.svg" alt="Удалить" class="icon"/>
+    </button>
+
+   
+  </header>
+
+  <!-- Область для контента -->
+  <main class="modal-content">
+    <ng-template [cdkPortalOutlet]="portal"></ng-template>
+  </main>
+</div>

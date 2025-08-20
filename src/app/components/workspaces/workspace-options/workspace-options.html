@@ -1,0 +1,27 @@
+<div class="bottom-sheet-container">
+  <div class="bottom-sheet-content">
+    <ul class="bottom-sheet-list">
+      <li class="bottom-sheet-item" (click)="showWorkspaceInfo()">
+        <img src="assets/icons/info.svg" alt="Информация" class="icon"/>
+        <span>Информация о пространстве</span>
+      </li>
+      <li *ngIf="isOwner" class="bottom-sheet-item" (click)="editWorkspace()">
+        <img src="assets/icons/edit.svg" alt="Редактировать" class="icon"/>
+        <span>Редактировать</span>
+      </li>
+      <li *ngIf="isOwner" class="bottom-sheet-item" (click)="inviteUser()">
+        <img src="assets/icons/person-add.svg" alt="Пригласить" class="icon"/>
+        <span>Пригласить</span>
+      </li>
+      <li *ngIf="isOwner" class="bottom-sheet-item" (click)="deleteWorkspace()">
+        <img src="assets/icons/trash.svg" alt="Удалить" class="icon"/>
+        <span>Удалить</span>
+      </li>
+      <li *ngIf="isOwner" class="bottom-sheet-item" (click)="deleteWorkspace()">
+        <img src="assets/icons/trash.svg" alt="Удалить" class="icon"/>
+        <span>Удалить</span>
+      </li>
+    </ul>
+    <button class="button close-button" (click)="close()">Закрыть</button>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+  <h3>Login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="login-email">Email:</label>
+      <input id="login-email" type="email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="login-password">Password:</label>
+      <input id="login-password" type="password" formControlName="password">
+    </div>
+    <div class="button-group">
+        <button type="submit" class="button" [disabled]="!loginForm.valid">Login</button>
+        <button type="button" class="button" (click)="openRegisterModal($event)">Register as Admin</button>
+        <button type="button" class="button" (click)="openSettings()">
+            <img src="assets/icons/settings-2.svg" alt="Настройки" class="icon"/>
+        </button>
+    </div>
+  </form>
+  <div *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+</div>

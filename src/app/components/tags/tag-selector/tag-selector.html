@@ -1,0 +1,9 @@
+<div class="tag-selector-container">
+  <div class="tag-list">
+    <ng-container *ngIf="allTags$ | async as allTags">
+      <button *ngFor="let tag of allTags | keyvalue" class="button" (click)="selectTag(tag.key)">
+        {{ tag.value.name }}
+      </button>
+    </ng-container>
+  </div>
+</div>

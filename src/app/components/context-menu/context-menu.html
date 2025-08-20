@@ -1,0 +1,8 @@
+<div class="context-menu-container" [style.left.px]="x" [style.top.px]="y">
+  <ul class="context-menu-list">
+    <li *ngFor="let item of items" class="button" [ngClass]="item.className" (click)="itemClick.emit(item)">
+      <img *ngIf="item.icon" [src]="item.icon" [alt]="item.label" class="icon"/>
+      <span>{{ item.label }}</span>
+    </li>
+  </ul>
+</div>

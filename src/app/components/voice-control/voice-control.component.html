@@ -1,0 +1,21 @@
+<div *ngIf="activeVoiceChannel$ | async as channel" class="voice-controls">
+
+  <!-- Кнопка подключения к звонку -->
+  <button (click)="toggleVoiceConnection()" [ngClass]="{'active': isVoiceActive$ | async}">
+    <span *ngIf="!(isVoiceActive$ | async)">Начать звонок</span>
+    <span *ngIf="isVoiceActive$ | async">Отключиться от звонка</span>
+  </button>
+
+  <!-- Кнопки управления, видимые только во время активного звонка -->
+  <div *ngIf="isVoiceActive$ | async">
+    <!-- Кнопка Mute/Unmute -->
+    <button (click)="toggleMute()">
+      <span *ngIf="!isMuted">Выключить микрофон</span>
+      <span *ngIf="isMuted">Включить микрофон</span>
+    </button>
+  </div>
+
+  <!-- Кнопка полного выхода из канала -->
+  <button (click)="disconnect()">Покинуть канал</button>
+
+</div>

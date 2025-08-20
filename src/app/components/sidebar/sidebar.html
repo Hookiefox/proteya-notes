@@ -1,0 +1,70 @@
+<div class="sidebar">
+
+  <div class="left-panel">
+    <app-workspace-selector></app-workspace-selector>
+  </div>
+
+
+
+
+  <div class="sidebar-container">
+    <div class="fixed-panel">
+      
+      <button class="button" (click)="synchronize()">
+        <img src="assets/icons/refresh.svg" alt="Синхронизировать" class="icon"/>
+      </button>
+      <button class="button" (click)="openSettings()">
+        <img src="assets/icons/settings-2.svg" alt="Настройки" class="icon"/>
+      </button>
+      <button class="button" (click)="openUserManagement()">
+        <img src="assets/icons/people.svg" alt="Управление пользователями" class="icon"/>
+      </button>
+      <button #workspaceButton class="button workspace-button" (click)="openWorkspaceOptions($event, workspaceButton)">
+        <img *ngIf="(activeWorkspace$ | async)?.avatar_url" [src]="(activeWorkspace$ | async)?.avatar_url | absoluteUrl" class="workspace-avatar">
+        <span *ngIf="activeWorkspace$ | async as activeWorkspace">{{ activeWorkspace.name }}</span>
+      </button>
+      
+    </div>
+        <div class="scrollable-content">
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">
+          <div class="center-text">Теги</div>
+          <button class="button" (click)="openTagManager()">
+            <img src="assets/icons/pricetags.svg" alt="Управление тегами" class="icon"/>
+          </button>
+        </div>
+
+        
+        <div class="sidebar-actions">
+          
+        </div>
+        <app-tag-tree></app-tag-tree>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">
+          <div class="center-text">Заметки</div>
+          <button #createButton class="button" (click)="openCreateMenu($event, createButton)">
+            <img src="assets/icons/plus.svg" alt="Создать" class="icon"/>
+          </button>
+        </div>
+        
+        <ul class="notes-list" *ngIf="notes$ | async as notes">
+          <li *ngFor="let note of notes" class="interactive-item" 
+              [class.is-active]="(selectedNote$ | async)?.id === note.id || (activeVoiceChannelService.activeVoiceChannel$ | async)?.id === note.id"
+              (click)="selectNote(note)">
+            <span class="note-title">
+              <img src="assets/icons/mic.svg" alt="Голосовой канал" class="icon" *ngIf="note.type === 'voice'"/>
+              <img src="assets/icons/lock.svg" alt="Зашифровано" class="icon" *ngIf="note.is_encrypted"/>
+              {{ note.title }}
+            </span>
+         
+          </li>
+        </ul>
+      </div>
+    </div>
+    <app-voice-control></app-voice-control>
+  </div>
+
+</div>

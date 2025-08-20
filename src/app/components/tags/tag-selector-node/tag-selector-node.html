@@ -1,0 +1,16 @@
+<!-- Оборачиваем все в контейнер с директивой formGroup -->
+<div [formGroup]="formGroup">
+  <div class="tag-node">
+    <input type="checkbox" [formControlName]="tag.id">
+    <label>{{ tag.name }}</label>
+  </div>
+
+  <div class="children-container" *ngIf="tag.children.length > 0">
+    <app-tag-selector-node
+      *ngFor="let childId of tag.children"
+      [tag]="allTags[childId]"
+      [allTags]="allTags"
+      [formGroup]="formGroup">
+    </app-tag-selector-node>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="app-container" [class.sidebar-collapsed]="isSidebarCollapsed">
+  <button class="sidebar-toggle-button" (click)="toggleSidebar()">
+    <img src="assets/icons/menu.svg" alt="Свернуть/развернуть" class="icon"/>
+  </button>
+  <app-sidebar [isCollapsed]="isSidebarCollapsed"></app-sidebar>
+  <app-content></app-content>
+</div>

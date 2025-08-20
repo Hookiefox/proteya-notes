@@ -1,0 +1,29 @@
+<!-- Весь элемент теперь контейнер, чтобы правильно обрабатывать клики -->
+<div class="node-container">
+  <div class="interactive-item" 
+       [class.is-active]="(selectedTagId$ | async) === tag.id"
+       (click)="filterByThisTag(); $event.stopPropagation()">
+    <!-- Иконка для сворачивания/разворачивания -->
+    <span 
+      class="toggle-icon"
+      *ngIf="tag.children.length > 0"
+      (click)="toggleExpansion($event)">
+      <img [src]="'assets/icons/chevron-right.svg'" class="icon" [style.transform]="isExpanded ? 'rotate(90deg)' : 'rotate(0deg)'"/>
+    </span>
+    
+    <!-- Если у тега нет детей, добавляем отступ для выравнивания -->
+    <span class="spacer" *ngIf="tag.children.length === 0"></span>
+
+    <!-- Имя тега -->
+    <span class="tag-name">{{ tag.name }}</span>
+  </div>
+</div>
+
+<!-- Контейнер с дочерними элементами показывается только если isExpanded === true -->
+<div class="children-container" *ngIf="tag.children.length > 0 && isExpanded">
+  <app-tag-node
+    *ngFor="let childId of tag.children"
+    [tag]="allTags[childId]"
+    [allTags]="allTags">
+  </app-tag-node>
+</div>

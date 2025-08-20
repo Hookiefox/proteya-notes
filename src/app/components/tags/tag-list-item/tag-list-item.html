@@ -1,0 +1,27 @@
+<div class="tag-item">
+  <span class="tag-name">{{ tag.name }}</span>
+  <div class="actions">
+    <button class="icon-button" (click)="edit.emit(tag)" title="Редактировать">
+      <img src="assets/icons/edit.svg" alt="Редактировать" class="icon"/>
+    </button>
+    
+    <button class="icon-button" (click)="addChild.emit(tag.id)" title="Добавить дочерний">
+      <img src="assets/icons/plus.svg" alt="Добавить дочерний" class="icon"/>
+    </button>
+
+    <button class="icon-button" (click)="remove.emit(tag.id)" title="Удалить">
+      <img src="assets/icons/trash-2.svg" alt="Удалить" class="icon"/>
+    </button>
+  </div>
+</div>
+
+<div class="children-container" *ngIf="tag.children.length > 0">
+  <app-tag-list-item
+    *ngFor="let childId of tag.children"
+    [tag]="allTags[childId]"
+    [allTags]="allTags"
+    (edit)="edit.emit($event)"
+    (addChild)="addChild.emit($event)"
+    (remove)="remove.emit($event)">
+  </app-tag-list-item>
+</div>

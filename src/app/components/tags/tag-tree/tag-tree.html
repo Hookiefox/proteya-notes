@@ -1,0 +1,19 @@
+<div class="tag-tree-container">
+  
+  
+  <div class="nodes-wrapper">
+    <div 
+      class="interactive-item" 
+      [class.is-active]="(selectedTagId$ | async) === null" 
+      (click)="clearFilter()">
+      Все заметки
+    </div>
+    <ng-container *ngIf="allTags$ | async as allTags">
+      <app-tag-node
+        *ngFor="let rootTag of rootTags$ | async"
+        [tag]="rootTag"
+        [allTags]="allTags">
+      </app-tag-node>
+    </ng-container>
+  </div>
+</div>

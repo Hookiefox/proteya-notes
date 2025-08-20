@@ -1,0 +1,36 @@
+
+.bottom-sheet-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-sheet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.bottom-sheet-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.bottom-sheet-item:hover {
+  background-color: #f0f0f0;
+}
+
+.delete-item:hover {
+  background-color: #ff4f4f;
+  color: #ff4f4f;
+}
+
+.bottom-sheet-item .icon {
+  margin-right: 15px;
+}
+
+.close-button {
+  align-self: center;
+}

@@ -1,0 +1,15 @@
+<div class="tag-create-form-container">
+  <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="parentTagName" class="parent-tag-info">
+      Дочерний тег для: <strong>{{ parentTagName }}</strong>
+    </div>
+    <div class="form-row">
+      <label for="tag-name">Имя тега</label>
+      <input id="tag-name" formControlName="name" placeholder="Введите имя тега">
+    </div>
+    <div class="form-actions">
+      <button type="button" class="button" (click)="onCancel()">Отмена</button>
+      <button type="submit" class="button" [disabled]="!tagForm.valid">Создать</button>
+    </div>
+  </form>
+</div>

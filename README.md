@@ -1,3 +1,6 @@
+<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/a0b4bafb-3899-4a3b-b6ba-749ff9772ced" />
+
+
 # Angular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
